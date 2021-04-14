@@ -5,6 +5,6 @@ const PostsList = () => {
         results.push(<li><Link to={"/posts/" + id}>Post number #{id}</Link></li>)
         
     }
-    return ( <div>posts</div> );
+    return ( <ul>{results}</ul> );
 }
 export default PostsList;
