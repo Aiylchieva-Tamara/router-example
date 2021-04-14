@@ -1,23 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+import { Redirect, Route, Switch } from "react-router";
+import {  NavLink } from "react-router-dom";
+import About from "./components/About/About";
+import Contact from "./components/Contact/Contact";
+import Home from "./components/Home/Home";
+import NotFound from "./components/NotFound/NotFound";
+import Posts from "./components/Posts/Posts";
+import "./App.css"
 
 function App() {
+  const activeLinkStyle = {
+    fontWeight: "bold",
+  };   
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ul>
+        <li>
+          <NavLink  
+          activeStyle={activeLinkStyle}
+          activeClassName="activeLink"
+          to="/"
+          exact>Home</NavLink>
+          </li>
+        
+        <li>
+          <NavLink  
+          activeStyle={activeLinkStyle}
+          activeClassName="activeLink"
+          to="/contact"
+          exact>Home</NavLink>
+          </li>
+        
+        <li>
+          <NavLink  
+          activeStyle={activeLinkStyle}
+          activeClassName="activeLink"
+          to="/about"
+          exact>Home</NavLink>
+          </li>
+          <li>
+          <NavLink  
+          activeStyle={activeLinkStyle}
+          activeClassName="activeLink"
+          to="/posts"
+          exact>Posts</NavLink>
+          </li>
+      </ul>
+      <Switch>
+      <Route exact path="/" component={Home}  />
+      <Route path="/contact" component={Contact}  />
+      <Route path="/about" component={About}  />
+      <Route path="/" component={NotFound}  />
+      <Route path="/posts" component={Posts}  />
+      <Redirect to="/" />  
+      {/* Главная страница ошибка */}
+      
+      </Switch>
+      {/* <About /> */}
     </div>
   );
 }
