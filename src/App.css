@@ -10,7 +10,7 @@
 .ulNav {  
   display: flex;
   justify-content: center;
-  
+ text-align: center;
 }
 .ulNav li{
  padding: 10px;
